@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Klub Gemar Berpikir — SMA Negeri 17 Palembang</title>
+
+  <!-- Tailwind Play CDN untuk styling cepat -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* sedikit penyesuaian visual */
+    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .modal-open { overflow: hidden; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900">
+
+  <!-- Header -->
+  <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold">KG</div>
+      <div>
+        <h1 class="text-xl font-semibold">Klub Gemar Berpikir</h1>
+        <p class="text-sm text-slate-600">Ekskul SMA Negeri 17 Palembang</p>
+      </div>
+    </div>
+
+    <nav class="space-x-4">
+      <a href="#about" class="text-sm hover:underline">Tentang</a>
+      <a href="#kegiatan" class="text-sm hover:underline">Kegiatan</a>
+      <a href="#jadwal" class="text-sm hover:underline">Jadwal</a>
+      <button id="btn-open-join" class="ml-2 rounded-md bg-indigo-600 text-white px-3 py-1 text-sm hover:bg-indigo-700">Gabung</button>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-6xl mx-auto px-6 pb-16">
+
+    <!-- Hero -->
+    <section class="grid md:grid-cols-2 gap-8 items-center py-10">
+      <div>
+        <h2 class="text-3xl font-extrabold">Bangun Kebiasaan Berpikir, Bukan Hanya Menghafal</h2>
+        <p class="mt-4 text-slate-700 leading-relaxed">
+          Klub Gemar Berpikir adalah wadah bagi siswa SMA Negeri 17 Palembang yang ingin mengasah
+          koding
+        </p>
+
+        <div class="mt-6 flex gap-3">
+          <button id="hero-join" class="rounded-md bg-indigo-600 text-white px-4 py-2 hover:bg-indigo-700">Daftar Sekarang</button>
+          <a href="#kegiatan" class="rounded-md border border-slate-300 px-4 py-2 text-sm">Lihat Kegiatan</a>
+        </div>
+      </div>
+
+      <div class="rounded-lg overflow-hidden shadow-lg">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop&s=placeholder" alt="diskusi siswa" class="w-full h-64 object-cover" />
+      </div>
+    </section>
+
+    <!-- Visi & Misi -->
+    <section id="about" class="py-8">
+      <h3 class="text-2xl font-semibold">Visi & Misi</h3>
+      <div class="mt-4 grid md:grid-cols-3 gap-4">
+        <div class="p-4 border rounded-md">
+          <h4 class="font-semibold">Visi</h4>
+          <p class="text-sm text-slate-700 mt-2">Ngoding lah</p>
+        </div>
+        <div class="p-4 border rounded-md">
+          <h4 class="font-semibold">Misi</h4>
+          <ul class="text-sm text-slate-700 mt-2 list-disc pl-5 space-y-1">
+            <li>ngoding</li>
+            <li>Mengasah alur logika anak-anak jubel yang imuts dan comel dengan ngoding</li>
+            <li>Ngoding</li>
+          </ul>
+        </div>
+        <div class="p-4 border rounded-md">
+          <h4 class="font-semibold">Nilai</h4>
+          <p class="text-sm text-slate-700 mt-2">Rasa ingin tahu, keterbukaan, etika berpikir, dan kerja sama.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kegiatan Terbaru -->
+    <section id="kegiatan" class="py-8">
+      <h3 class="text-2xl font-semibold">Kegiatan Terbaru</h3>
+      <div class="mt-4 grid md:grid-cols-3 gap-4" id="events-list">
+        <!-- event cards akan diisi oleh JS -->
+      </div>
+    </section>
+
+    <!-- Jadwal -->
+    <section id="jadwal" class="py-8">
+      <h3 class="text-2xl font-semibold">Jadwal Rutin</h3>
+      <p class="mt-2 text-sm text-slate-700">Pertemuan rutin setiap Jumat setelah pelajaran. Berikut contoh jadwal bulan ini:</p>
+
+      <div class="mt-4 overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-100">
+              <th class="p-3">Tanggal</th>
+              <th class="p-3">Kegiatan</th>
+              <th class="p-3">Tempat</th>
+            </tr>
+          </thead>
+          <tbody id="jadwal-body">
+            <!-- rows diisi oleh JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Galeri -->
+    <section id="gallery" class="py-8">
+      <h3 class="text-2xl font-semibold">Galeri</h3>
+      <p class="mt-2 text-sm text-slate-700">Cuplikan dokumentasi kegiatan klub.</p>
+
+      <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3" id="gallery-grid">
+        <!-- placeholder foto -->
+      </div>
+    </section>
+
+    <!-- Kontak & Form -->
+    <section id="contact" class="py-8">
+      <div class="md:flex md:gap-8">
+        <div class="md:w-1/2">
+          <h3 class="text-2xl font-semibold">Hubungi Kami</h3>
+          <p class="mt-2 text-sm text-slate-700">Bila ingin informasi lebih lanjut, hubungi pembina eskul atau kirim pesan lewat form.</p>
+
+          <ul class="mt-4 text-sm space-y-2">
+            <li><strong>Pembina:</strong> Bpk. Diki</li>
+            <li><strong>Ketua:</strong> Adam Al-Khaiya</li>
+            <li><strong>Email sekolah:</strong> info@sman17-palembang.sch.id</li>
+            <li><strong>Lokasi:</strong> SMA Negeri 17 Palembang - Jalan Abusama (gw lupa jir)</li>
+          </ul>
+        </div>
+
+        <div class="md:w-1/2 mt-6 md:mt-0">
+          <h4 class="font-semibold">Form Kontak Cepat</h4>
+          <form id="contact-form" class="mt-3 space-y-3">
+            <input name="name" id="cf-name" placeholder="Nama lengkap" class="w-full p-2 border rounded-md" />
+            <select name="grade" id="cf-grade" class="w-full p-2 border rounded-md">
+              <option value="">Pilih kelas</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+            <textarea name="reason" id="cf-reason" placeholder="Kenapa ingin bergabung? (singkat)" class="w-full p-2 border rounded-md"></textarea>
+            <div class="flex gap-3">
+              <button type="submit" class="rounded-md bg-indigo-600 text-white px-4 py-2">Kirim</button>
+              <button type="button" id="btn-clear" class="rounded-md border px-4 py-2">Bersihkan</button>
+            </div>
+          </form>
+
+          <div id="cf-feedback" class="mt-3 hidden p-3 bg-green-50 border border-green-200 rounded-md text-sm text-green-700"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t py-6">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-slate-600">© <span id="year"></span> Klub Gemar Berpikir — SMA Negeri 17 Palembang</p>
+      <div class="text-sm text-slate-600">Dibuat dengan ♥ untuk ketertarikan belajar.</div>
+    </div>
+  </footer>
+
+  <!-- Modal Pendaftaran -->
+  <div id="join-modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-md max-w-xl w-full p-6">
+      <div class="flex justify-between items-start">
+        <h4 class="text-lg font-semibold">Form Pendaftaran Klub</h4>
+        <button id="btn-close-join" class="text-slate-500">✕</button>
+      </div>
+
+      <form id="join-form" class="mt-4 space-y-3">
+        <input name="name" id="j-name" placeholder="Nama lengkap" class="w-full p-2 border rounded-md" />
+        <select name="grade" id="j-grade" class="w-full p-2 border rounded-md">
+          <option value="">Pilih kelas</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+        <textarea name="reason" id="j-reason" placeholder="Alasan ingin bergabung" class="w-full p-2 border rounded-md"></textarea>
+
+        <div class="flex justify-end gap-3">
+          <button type="button" id="j-cancel" class="px-4 py-2 border rounded-md">Batal</button>
+          <button type="submit" class="px-4 py-2 rounded-md bg-indigo-600 text-white">Kirim Pendaftaran</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Script: data & interaksi -->
+  <script>
+    // sample events (sama seperti di TypeScript)
+    const sampleEvents = [
+      {
+        id: 1,
+        title: "Diskusi Filosofi: Pengertian Kebebasan",
+        date: "2025-11-07",
+        time: "15:30 - 17:00",
+        location: "Lab Bahasa",
+        description: "Diskusi santai tentang konsep kebebasan dalam konteks remaja dan sekolah."
+      },
+      {
+        id: 2,
+        title: "Workshop Logika & Pemecahan Masalah",
+        date: "2025-11-14",
+        time: "15:30 - 17:30",
+        location: "Ruang Komputer 2",
+        description: "Latihan berpikir kritis dan permainan logika tim."
+      },
+      {
+        id: 3,
+        title: "Klinik Debat Mini",
+        date: "2025-11-21",
+        time: "15:30 - 17:00",
+        location: "Aula Sekolah",
+        description: "Simulasi debat, teknik argumen, dan etika berdebat."
+      }
+    ];
+
+    // render events
+    const eventsList = document.getElementById('events-list');
+    const jadwalBody = document.getElementById('jadwal-body');
+    const galleryGrid = document.getElementById('gallery-grid');
+
+    function renderEvents() {
+      eventsList.innerHTML = '';
+      jadwalBody.innerHTML = '';
+      sampleEvents.forEach(ev => {
+        const card = document.createElement('article');
+        card.className = 'p-4 border rounded-md bg-white';
+        card.innerHTML = \`
+          <h4 class="font-semibold">\${ev.title}</h4>
+          <p class="text-xs text-slate-500">\${ev.date} • \${ev.time} • \${ev.location}</p>
+          <p class="mt-2 text-sm text-slate-700">\${ev.description}</p>
+          <div class="mt-3 flex justify-end">
+            <button class="text-sm px-3 py-1 rounded-md border">Detail</button>
+          </div>
+        \`;
+        eventsList.appendChild(card);
+
+        // jadwal row
+        const tr = document.createElement('tr');
+        tr.className = 'border-t';
+        tr.innerHTML = \`
+          <td class="p-3">\${ev.date}</td>
+          <td class="p-3">\${ev.title}</td>
+          <td class="p-3">\${ev.location}</td>
+        \`;
+        jadwalBody.appendChild(tr);
+      });
+    }
+
+    function renderGallery() {
+      galleryGrid.innerHTML = '';
+      for (let i = 0; i < 8; i++) {
+        const div = document.createElement('div');
+        div.className = 'h-36 bg-slate-100 rounded overflow-hidden flex items-center justify-center text-slate-400';
+        div.textContent = 'Foto ' + (i + 1);
+        galleryGrid.appendChild(div);
+      }
+    }
+
+    // modal & form logic
+    const joinModal = document.getElementById('join-modal');
+    const btnOpen = document.getElementById('btn-open-join');
+    const btnHero = document.getElementById('hero-join');
+    const btnClose = document.getElementById('btn-close-join');
+    const jCancel = document.getElementById('j-cancel');
+    const joinForm = document.getElementById('join-form');
+
+    function openModal() {
+      joinModal.classList.remove('hidden');
+      document.documentElement.classList.add('modal-open');
+    }
+    function closeModal() {
+      joinModal.classList.add('hidden');
+      document.documentElement.classList.remove('modal-open');
+    }
+
+    btnOpen.addEventListener('click', openModal);
+    btnHero.addEventListener('click', openModal);
+    btnClose.addEventListener('click', closeModal);
+    jCancel.addEventListener('click', closeModal);
+
+    joinForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('j-name').value.trim();
+      const grade = document.getElementById('j-grade').value;
+      const reason = document.getElementById('j-reason').value.trim();
+      if (!name || !grade || !reason) {
+        alert('Mohon lengkapi semua field sebelum mengirim.');
+        return;
+      }
+      // simulasi submit
+      alert('Pendaftaran terkirim (simulasi). Terima kasih, ' + name + '!');
+      joinForm.reset();
+      closeModal();
+    });
+
+    // contact form
+    const contactForm = document.getElementById('contact-form');
+    const feedback = document.getElementById('cf-feedback');
+    document.getElementById('btn-clear').addEventListener('click', () => contactForm.reset());
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('cf-name').value.trim();
+      const grade = document.getElementById('cf-grade').value;
+      const reason = document.getElementById('cf-reason').value.trim();
+      if (!name || !grade || !reason) {
+        alert('Mohon lengkapi semua field sebelum mengirim.');
+        return;
+      }
+      // simulasi kirim
+      feedback.textContent = 'Terima kasih! Form Anda telah dikirim (simulasi).';
+      feedback.classList.remove('hidden');
+      contactForm.reset();
+      setTimeout(() => feedback.classList.add('hidden'), 6000);
+    });
+
+    // misc
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // inisialisasi
+    renderEvents();
+    renderGallery();
+  </script>
+</body>
+</html>
