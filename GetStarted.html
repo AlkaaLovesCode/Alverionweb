@@ -2,26 +2,33 @@
 <html lang="id">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title> Get Started </title>
-<style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get Started</title>
+  <style>
     body {
-        background-color: brown;
+      background-color: brown;
+      margin: 0;
+      padding: 0;
     }
     .person {
-      background-image: url{billgates.png}
       position: relative;
       bottom: 10px;
+      background-image: url('billgates.png');
+      background-size: cover;
+      background-position: center;
+      width: 200px; /* tambahkan ukuran agar background terlihat */
+      height: 200px;
     }
-</style>
+    .person img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
 <body>
   <div class="person">
-    <img src="billgates.png"></img>
+    <img src="billgates.png" alt="Bill Gates" />
   </div>
 </body>
-</head>
 </html>
-
-
-
-
